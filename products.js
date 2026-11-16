@@ -1,4 +1,4 @@
-/* Ganti data contoh ini dengan listing akun milik tokomu. Harga dalam Rupiah. */
+/* Katalog DIDIN STORE — dibuat dari pengelola katalog */
 window.PRODUCTS = [
   {
     "id": "ml-001",
