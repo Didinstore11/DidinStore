@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#061725">
+  <meta name="description" content="Didin Store - Marketplace akun game pilihan. Aman, praktis, dan responsif.">
+  <title>Didin Store — didinstore11</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="#" aria-label="Didin Store beranda">
+    <span class="brand-mark">D<span>S</span></span>
+    <span class="brand-copy"><b>DIDIN STORE</b><small>didinstore11</small></span>
+  </a>
+  <nav class="desktop-nav">
+    <a href="#beranda" class="active">Beranda</a><a href="#produk">Produk</a><a href="#cara-beli">Cara Beli</a><a href="#tentang">Tentang</a>
+  </nav>
+  <div class="top-actions">
+    <button class="icon-btn" id="themeToggle" aria-label="Ganti tema">☼</button>
+    <button class="cart-btn" id="openCart">Keranjang <span id="cartCount">0</span></button>
+    <button class="menu-btn" id="menuToggle" aria-label="Buka menu">☰</button>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="beranda">
+    <div class="hero-copy">
+      <div class="eyebrow"><i></i> MARKETPLACE AKUN GAME</div>
+      <h1>LEVEL UP.<br><em>OWN YOUR</em><br>LEGEND.</h1>
+      <p>Temukan akun game pilihanmu. Proses pemesanan praktis, informasi produk jelas, dan bantuan langsung dari admin.</p>
+      <div class="hero-buttons"><a class="btn primary" href="#produk">Jelajahi Produk <span>↗</span></a><a class="btn ghost" href="#cara-beli">Cara belanja</a></div>
+      <div class="hero-stats"><div><b>5+</b><small>Kategori game</small></div><div><b>24/7</b><small>Pesan online</small></div><div><b>Fast</b><small>Respon admin*</small></div></div>
+      <small class="disclaimer">*Jam respons admin mengikuti ketersediaan.</small>
+    </div>
+    <div class="hero-art" aria-label="Ilustrasi gaming">
+      <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+      <div class="hero-glow"></div>
+      <div class="hero-card card-back"><span>DS / 11</span><b>GAME<br>MARKET</b></div>
+      <div class="hero-card card-front"><div class="card-top"><span> DIDIN STORE </span><span>01 / 11</span></div><div class="controller">⌁</div><strong>YOUR NEXT<br><em>ACCOUNT</em></strong><div class="card-bottom">PLAY SMART. TRADE BETTER.</div></div>
+      <div class="float-tag tag-a">✦ VERIFIED LISTING</div><div class="float-tag tag-b">DIDINSTORE11</div>
+    </div>
+  </section>
+
+  <section class="trust-strip">
+    <div><span>✦</span><b>Pilihan akun beragam</b><small>Berbagai game populer</small></div>
+    <div><span>⌕</span><b>Info transparan</b><small>Harga dan detail produk</small></div>
+    <div><span>↗</span><b>Checkout praktis</b><small>Hubungi admin via WhatsApp</small></div>
+  </section>
+
+  <section class="section" id="produk">
+    <div class="section-heading">
+      <div><div class="eyebrow">PILIH GAME FAVORITMU</div><h2>Katalog <em>Produk</em></h2><p>Temukan akun yang cocok dengan gaya bermainmu.</p></div>
+      <div class="catalog-tools"><label class="search"><span>⌕</span><input id="searchInput" type="search" placeholder="Cari akun atau game..."></label><select id="sortSelect" aria-label="Urutkan produk"><option value="newest">Terbaru</option><option value="low">Harga terendah</option><option value="high">Harga tertinggi</option></select></div>
+    </div>
+    <div class="filters" id="filters">
+      <button class="filter active" data-category="Semua">Semua</button>
+      <button class="filter" data-category="Mobile Legends">Mobile Legends</button>
+      <button class="filter" data-category="Free Fire">Free Fire</button>
+      <button class="filter" data-category="PUBG Mobile">PUBG Mobile</button>
+      <button class="filter" data-category="Valorant">Valorant</button>
+      <button class="filter" data-category="eFootball">eFootball</button>
+    </div>
+    <div class="product-grid" id="productGrid"></div>
+    <div class="empty-state hidden" id="emptyState"><div>⌕</div><h3>Produk tidak ditemukan</h3><p>Coba kata kunci atau kategori lainnya.</p></div>
+    <p class="catalog-note">Katalog contoh dapat diganti dengan data akun dan harga milik tokomu sebelum dipublikasikan.</p>
+  </section>
+
+  <section class="promo">
+    <div><div class="eyebrow">DIDIN STORE / DIDINSTORE11</div><h2>AKUN BARU.<br><em>PETUALANGAN BARU.</em></h2><p>Pilih akun favoritmu dan tanyakan ketersediaan langsung kepada admin.</p><a href="#produk" class="btn primary">Lihat katalog ↗</a></div>
+    <div class="promo-symbol">DS<span>11</span></div>
+  </section>
+
+  <section class="section how-section" id="cara-beli">
+    <div class="section-heading"><div><div class="eyebrow">MUDAH DAN PRAKTIS</div><h2>Cara <em>Pemesanan</em></h2><p>Ikuti langkah berikut untuk memesan akun dengan pembayaran manual.</p></div></div>
+    <div class="steps">
+      <article><span>01</span><div class="step-icon">⌕</div><h3>Pilih akun</h3><p>Cari game dan akun yang sesuai dengan kebutuhanmu.</p></article>
+      <article><span>02</span><div class="step-icon">＋</div><h3>Masukkan keranjang</h3><p>Tambahkan produk pilihan dan periksa ringkasan pesanan.</p></article>
+      <article><span>03</span><div class="step-icon">↗</div><h3>Chat admin</h3><p>Kirim detail pesanan melalui WhatsApp untuk konfirmasi stok.</p></article>
+      <article><span>04</span><div class="step-icon">✓</div><h3>Selesaikan transaksi</h3><p>Bayar hanya ke rekening atau QRIS yang dikirim admin resmi setelah pesanan dikonfirmasi, lalu pastikan akun sudah diterima.</p></article>
+    </div>
+  </section>
+
+  <section class="about-section" id="tentang">
+    <div class="about-logo">D<span>S</span></div><div><div class="eyebrow">KENALAN DENGAN TOKO KAMI</div><h2>Welcome to <em>Didin Store.</em></h2><p>Didin Store (didinstore11) adalah etalase digital untuk jual beli akun game. Kami ingin membuat proses mencari akun lebih mudah dengan katalog yang rapi dan komunikasi pemesanan yang jelas.</p></div>
+    <a class="btn ghost" id="contactAdmin" href="#" target="_blank" rel="noopener">Hubungi admin ↗</a>
+  </section>
+</main>
+
+<footer><a class="brand" href="#"><span class="brand-mark">D<span>S</span></span><span class="brand-copy"><b>DIDIN STORE</b><small>didinstore11</small></span></a><p>© <span id="year"></span> Didin Store. All rights reserved.</p><div><a href="#produk">Produk</a><a href="#cara-beli">Bantuan</a><a id="footerWhatsApp" href="#" target="_blank" rel="noopener">WhatsApp</a></div></footer>
+
+<div class="overlay hidden" id="cartOverlay">
+  <aside class="cart-drawer" aria-label="Keranjang belanja">
+    <div class="drawer-head"><div><div class="eyebrow">PESANAN KAMU</div><h2>Keranjang</h2></div><button class="close-btn" id="closeCart" aria-label="Tutup">×</button></div>
+    <div id="cartItems" class="cart-items"></div>
+    <div class="cart-footer"><div class="total-line"><span>Total sementara</span><b id="cartTotal">Rp0</b></div><button class="btn primary full" id="checkoutBtn">Pesan via WhatsApp ↗</button><small>Pembayaran manual: admin akan mengirim instruksi transfer bank atau QRIS setelah stok dan total dikonfirmasi. Jangan transfer sebelum menerima instruksi resmi dari admin.</small></div>
+  </aside>
+</div>
+<div class="toast" id="toast" role="status"></div>
+<script src="config.js"></script><script src="products.js"></script><script src="app.js"></script>
+</body>
+</html>

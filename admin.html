@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#061725"><title>Pengelola Produk — DIDIN STORE</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#061725;color:#eef6ff;font:15px/1.5 Arial,sans-serif;padding:18px}
+main{max-width:760px;margin:auto}.panel{background:#0a2133;border:1px solid #17445d;border-radius:16px;padding:18px;margin:14px 0}
+h1,h2{margin:0 0 10px}h1{font-size:25px}p,small{color:#a7bdcd}label{display:block;font-weight:700;margin:13px 0 6px}
+input,select,textarea{width:100%;padding:12px;border:1px solid #28516a;border-radius:9px;background:#061725;color:#eef6ff;font:inherit}
+button,.btn{display:inline-block;border:0;border-radius:10px;padding:12px 16px;background:#22c5f4;color:#052033;font-weight:800;cursor:pointer;margin:8px 6px 0 0}
+button.secondary{background:#15384d;color:#eef6ff;border:1px solid #28516a}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}.preview{max-width:100%;max-height:230px;object-fit:contain;display:block;margin-top:12px;border-radius:10px}.item{display:flex;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid #17445d}.item img{width:64px;height:64px;object-fit:cover;border-radius:8px;background:#123}.item div{flex:1;min-width:0}.item b{display:block}.item small{display:block;overflow-wrap:anywhere}.warn{border-left:4px solid #22c5f4;padding-left:12px}.status{color:#7ee8ba;min-height:1.5em}@media(max-width:520px){.row{grid-template-columns:1fr}body{padding:12px}}
+</style></head>
+<body><main>
+<h1>Pengelola Katalog DIDIN STORE</h1>
+<p>Tambah produk dan foto dari HP. Foto akan dikompres agar ukuran file lebih ringan.</p>
+<div class="panel warn"><b>Penting:</b> Ini situs statis Netlify. Halaman ini tidak bisa menyimpan perubahan langsung ke server. Setelah selesai, unduh file <code>products.js</code>, ganti file yang lama di folder proyek, lalu deploy ulang folder proyek ke Netlify. Perubahan tidak otomatis terlihat oleh pelanggan sebelum deploy ulang.</div>
+<div class="panel">
+<h2>Tambah produk</h2>
+<label for="name">Nama produk *</label><input id="name" placeholder="Contoh: Akun Mobile Legends Legend">
+<div class="row"><div><label for="game">Kategori game *</label><select id="game"><option>Mobile Legends</option><option>Free Fire</option><option>PUBG Mobile</option><option>Valorant</option><option>eFootball</option><option>Lainnya</option></select></div><div><label for="price">Harga (Rupiah) *</label><input id="price" type="number" min="0" step="1000" placeholder="200000"></div></div>
+<div class="row"><div><label for="stock">Stok</label><input id="stock" type="number" min="0" step="1" value="1"></div><div><label for="level">Rank/label</label><input id="level" placeholder="Contoh: Legend"></div></div>
+<label for="description">Keterangan produk</label><textarea id="description" rows="3" placeholder="Tulis detail yang aman untuk ditampilkan publik"></textarea>
+<label for="photo">Foto produk dari galeri HP</label><input id="photo" type="file" accept="image/*">
+<img id="preview" class="preview" hidden alt="Pratinjau foto produk">
+<small>Gunakan foto milik sendiri. Jangan masukkan password, OTP, email pemulihan, atau data rahasia ke foto.</small>
+<div><button id="add">Tambah ke daftar</button><button class="secondary" id="reset" type="button">Kosongkan formulir</button></div>
+<p class="status" id="status" role="status"></p>
+</div>
+<div class="panel"><h2>Produk yang akan diekspor</h2><div id="list"></div><button id="download">Unduh products.js</button><button class="secondary" id="exportJson">Cadangkan data JSON</button><p class="status" id="exportStatus"></p></div>
+<div class="panel"><h2>Cara menerapkan perubahan</h2><ol><li>Tekan <b>Unduh products.js</b>.</li><li>Di folder proyek DIDIN STORE, ganti file <code>products.js</code> lama dengan file yang baru diunduh.</li><li>Pastikan folder yang diunggah berisi <code>index.html</code>, <code>app.js</code>, <code>config.js</code>, <code>products.js</code>, <code>style.css</code>, dan <code>netlify.toml</code>.</li><li>Upload/deploy ulang folder proyek di Netlify Drop. Setelah deployment selesai, buka website dan tes foto serta keranjang.</li></ol></div>
+</main>
+<script src="products.js"></script>
+<script>
+const $=s=>document.querySelector(s);let items=(window.PRODUCTS||[]).map(p=>({...p}));let imageData="";
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+function draw(){ $("#list").innerHTML=items.length?items.map((p,i)=>`<div class="item">${p.image?`<img src="${p.image}" alt="">`:`<img alt="" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64'%3E%3Crect width='100%25' height='100%25' fill='%230d2a40'/%3E%3C/svg%3E">`}<div><b>${esc(p.name)}</b><small>${esc(p.game)} · Rp${Number(p.price).toLocaleString("id-ID")} · stok ${Number(p.stock)||0}</small></div><button class="secondary" data-remove="${i}">Hapus</button></div>`).join(""):"<p>Belum ada produk.</p>";}
+function slug(s){return s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"").slice(0,32)||"produk";}
+function resetForm(){["#name","#price","#description","#level"].forEach(s=>$(s).value="");$("#stock").value="1";$("#photo").value="";imageData="";$("#preview").hidden=true;$("#preview").removeAttribute("src");}
+$("#photo").addEventListener("change",async e=>{const f=e.target.files&&e.target.files[0];if(!f)return;if(!f.type.startsWith("image/")){alert("Pilih file gambar.");return}try{const data=await new Promise((resolve,reject)=>{const reader=new FileReader();reader.onload=()=>resolve(reader.result);reader.onerror=reject;reader.readAsDataURL(f)});const img=await new Promise((resolve,reject)=>{const im=new Image();im.onload=()=>resolve(im);im.onerror=reject;im.src=data});const max=1100,scale=Math.min(1,max/Math.max(img.width,img.height));const c=document.createElement("canvas");c.width=Math.round(img.width*scale);c.height=Math.round(img.height*scale);c.getContext("2d").drawImage(img,0,0,c.width,c.height);imageData=c.toDataURL("image/jpeg",0.78);$("#preview").src=imageData;$("#preview").hidden=false;$("#status").textContent="Foto siap digunakan."}catch(err){$("#status").textContent="Foto tidak bisa dibaca. Coba gambar lain."}});
+$("#add").addEventListener("click",()=>{const name=$("#name").value.trim(),price=Number($("#price").value),game=$("#game").value;if(!name||!Number.isFinite(price)||price<0){alert("Isi nama produk dan harga yang valid.");return}const id=slug(game+"-"+name)+"-"+Date.now().toString().slice(-5);items.unshift({id,name,game,price,oldPrice:0,badge:"",level:$("#level").value.trim()||"Ready",description:$("#description").value.trim()||"Detail produk dikonfirmasi admin sebelum pembelian",stock:Math.max(0,Math.floor(Number($("#stock").value)||0)),emoji:"🎮",tone:({"Mobile Legends":"ml","Free Fire":"ff","PUBG Mobile":"pubg","Valorant":"val","eFootball":"efo"}[game]||"ml"),...(imageData?{image:imageData}:{})});draw();resetForm();$("#status").textContent="Produk ditambahkan ke daftar. Unduh products.js untuk menerapkannya di website."});
+$("#list").addEventListener("click",e=>{const b=e.target.closest("[data-remove]");if(b){items.splice(Number(b.dataset.remove),1);draw()}});
+function download(name,content,type){const blob=new Blob([content],{type}),url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1500)}
+$("#download").addEventListener("click",()=>{download("products.js","/* Katalog DIDIN STORE — dibuat dari pengelola katalog */\nwindow.PRODUCTS = "+JSON.stringify(items,null,2)+";\n","text/javascript");$("#exportStatus").textContent="File products.js diunduh. Ganti file lama dan deploy ulang proyek."});
+$("#exportJson").addEventListener("click",()=>download("didinstore-products-backup.json",JSON.stringify(items,null,2),"application/json"));
+$("#reset").addEventListener("click",resetForm);draw();
+</script></body></html>

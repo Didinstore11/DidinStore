@@ -1,0 +1,107 @@
+/* Ganti data contoh ini dengan listing akun milik tokomu. Harga dalam Rupiah. */
+window.PRODUCTS = [
+  {
+    "id": "ml-001",
+    "name": "Akun Mobile Legends Epic",
+    "game": "Mobile Legends",
+    "price": 150000,
+    "oldPrice": 190000,
+    "badge": "POPULER",
+    "level": "Epic",
+    "description": "Rank Epic • Koleksi hero pilihan • Bind sesuai keterangan penjual",
+    "stock": 1,
+    "emoji": "⚔️",
+    "tone": "ml"
+  },
+  {
+    "id": "ml-002",
+    "name": "Akun Mobile Legends Mythic",
+    "game": "Mobile Legends",
+    "price": 350000,
+    "oldPrice": 0,
+    "badge": "HOT",
+    "level": "Mythic",
+    "description": "Rank Mythic • Skin dan hero sesuai detail listing",
+    "stock": 1,
+    "emoji": "🛡️",
+    "tone": "ml"
+  },
+  {
+    "id": "ff-001",
+    "name": "Akun Free Fire Sultan",
+    "game": "Free Fire",
+    "price": 200000,
+    "oldPrice": 250000,
+    "badge": "DEAL",
+    "level": "Kolektor",
+    "description": "Koleksi item • Detail bind dan item dikonfirmasi admin",
+    "stock": 1,
+    "emoji": "🔥",
+    "tone": "ff"
+  },
+  {
+    "id": "ff-002",
+    "name": "Akun Free Fire Starter",
+    "game": "Free Fire",
+    "price": 75000,
+    "oldPrice": 0,
+    "badge": "",
+    "level": "Starter",
+    "description": "Cocok untuk mulai bermain • Detail akun tersedia via admin",
+    "stock": 2,
+    "emoji": "🎯",
+    "tone": "ff"
+  },
+  {
+    "id": "pubg-001",
+    "name": "Akun PUBG Mobile",
+    "game": "PUBG Mobile",
+    "price": 275000,
+    "oldPrice": 0,
+    "badge": "BARU",
+    "level": "Premium",
+    "description": "Detail rank, skin, dan metode bind dikonfirmasi sebelum transaksi",
+    "stock": 1,
+    "emoji": "🎮",
+    "tone": "pubg"
+  },
+  {
+    "id": "val-001",
+    "name": "Akun Valorant",
+    "game": "Valorant",
+    "price": 300000,
+    "oldPrice": 0,
+    "badge": "",
+    "level": "Ready",
+    "description": "Region dan isi akun dikonfirmasi admin sebelum pembelian",
+    "stock": 1,
+    "emoji": "✦",
+    "tone": "val"
+  },
+  {
+    "id": "efo-001",
+    "name": "Akun eFootball",
+    "game": "eFootball",
+    "price": 125000,
+    "oldPrice": 0,
+    "badge": "",
+    "level": "Ready",
+    "description": "Skuad dan detail login dikonfirmasi admin sebelum transaksi",
+    "stock": 1,
+    "emoji": "⚽",
+    "tone": "efo"
+  },
+  {
+    "id": "ff-003",
+    "name": "Free Fire",
+    "game": "Free Fire",
+    "price": 500000,
+    "oldPrice": 0,
+    "badge": "BARU",
+    "level": "Ready",
+    "description": "Ff gagah idaman idaman",
+    "stock": 1,
+    "emoji": "🔥",
+    "tone": "ff"
+  }
+];
